@@ -1,0 +1,126 @@
+.padding-top-bottom-20px {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.padding-top-20px{
+	padding-top: 20px;
+}
+
+.padding-bottom-20px{
+	padding-bottom: 20px;
+}
+
+.margin-bottom-15px{
+    margin-bottom: 15px;
+}
+
+.margin-0-auto{
+	margin: 0 auto !important;
+}
+
+.cream-purple{
+	background: #A75265;
+    color: white;
+}
+
+.input-line{
+	border: 0;
+    border-bottom: 1px solid #868e97;
+    
+}
+
+.button-salmon-creamy{
+	background-color: #FF5434 !important;
+    color: #FFFF9D !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    min-width: 100px !important;
+}
+
+.button-wasabi-creamy{
+	background-color: #ADCF4F !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    min-width: 100px !important;
+}
+
+.button-orange-creamy{
+	background-color: #FFA543 !important;
+    color: #F7F2B2 !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    min-width: 100px !important;
+}
+
+.input-underline-creamy
+{
+	border: none !important;
+    background-color: transparent !important; 
+    border-bottom: 1px solid #FBFF57 !important;
+    height: 43px !important;
+}
+
+.input-underline-creamy:focus{
+    background-color: transparent !important;
+    border: 1px solid yellow !important;
+    height: 43px !important;
+}
+
+.background-grey{
+	background-color: #36362C !important;
+}
+
+.font-creamy-large{
+	font-size: medium !important;
+    color: #FFFF9D !important;
+}
+
+.font-title-x-large{
+	font-size: x-large !important;
+    color: white !important;
+}
+
+.padding-top-50px{
+	padding-top: 50px !important;
+}
+
+.min-width-100px{
+	min-width: 100px !important;
+}
+
+.table.table-light > thead > tr > th {
+	color: #555555;
+}
+
+.table.table-light > tbody > tr > td {
+	color: #555555;
+}
+
+.text-green{
+    color: green;
+}
+
+.text-red{
+    color: red;
+}
+
+.border-bottom-with-10px-padding-bottom{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.border-grey-navy{
+    border: 1px solid #868e97 !important;
+}
+
+.li-hover:hover{
+    background: #36D7B7 !important;
+    color:white !important;
+}
+
+.li-hover:hover .hover-icon{
+    color:white !important;
+}
+
