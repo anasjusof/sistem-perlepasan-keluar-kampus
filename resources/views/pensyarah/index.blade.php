@@ -21,69 +21,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-    	<!-- BEGIN BORDERED TABLE PORTLET-->
-	    <div class="portlet box green-seagreen ">
-	        <div class="portlet-title">
-	            <div class="caption">
-	                <i class="icon-calendar font-white"></i>
-	                <span class="uppercase">Permohonan Perlepasan</span>
-	            </div>
-	        </div>
-	        <div class="portlet-body">
-	            <div class="table-scrollable table-scrollable-borderless">
-	                {!! Form::open(['method'=>'POST', 'action'=>'LecturerController@applyLeave', 'files'=>true]) !!}
-				        <div class="form-group col-md-12">
-				            <label for="inputPassword1" class="col-md-4 control-label">Sebab Keluar</label>
-				            <div class="col-md-8">
-				                    <textarea name="reason" class="form-control border-grey-navy" rows="5" placeholder="Nyatakan sebab untuk keluar kampus" value="{{ old('reason') }}"></textarea>
-				            </div>
-				        </div>
-				        
-				        <div class="form-group col-md-12">
-				            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Keluar</label>
-				            <div class="col-md-8">
-				                <div class="input-group input-medium date date-picker" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
-				                	<span class="input-group-btn">
-				                        <button class="btn default" type="button">
-				                            <i class="fa fa-calendar"></i>
-				                        </button>
-				                    </span>
-				                    <input type="text" class="form-control" readonly="" name="date_from" value="{{ old('date_from') }}">
-				                </div>
-				            </div>
-				        </div>
-
-				        <div class="form-group col-md-12">
-				            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Pulang</label>
-				            <div class="col-md-8">
-				                <div class="input-group input-medium date date-picker" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
-				                	<span class="input-group-btn">
-				                        <button class="btn default" type="button">
-				                            <i class="fa fa-calendar"></i>
-				                        </button>
-				                    </span>
-				                    <input type="text" class="form-control" readonly="" name="date_to" value="{{ old('date_to') }}">
-				                    
-				                </div>
-				            </div>
-				        </div>
-				        
-				        <div class="form-group col-md-12">
-				            <label for="inputPassword1" class="col-md-4 control-label">Upload fail</label>
-				            <div class="col-md-8">
-				                <input class="form-control input-line input-medium" type="file" name="attachment" id="fileToUpload">
-				            </div>
-				        </div>
-				        <div class="form-group col-md-12">
-				            <button type="submit" class="btn btn-transparent blue active"> Submit </button>
-				        </div>
-				    {!! Form::close() !!}
-	            </div>
-	        </div>
-	    </div>
-	    <!-- END BORDERED TABLE PORTLET-->
-    </div>
+	
 	<div class="col-md-12">
 		<!-- BEGIN BORDERED TABLE PORTLET-->
 	    <div class="portlet box blue-dark">
@@ -167,6 +105,70 @@
 	    </div>
 	    <!-- END BORDERED TABLE PORTLET-->
 	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+    	<!-- BEGIN BORDERED TABLE PORTLET-->
+	    <div class="portlet box blue-dark ">
+	        <div class="portlet-title">
+	            <div class="caption">
+	                <i class="icon-calendar font-white"></i>
+	                <span class="uppercase">Permohonan Perlepasan</span>
+	            </div>
+	        </div>
+	        <div class="portlet-body">
+	            <div class="table-scrollable table-scrollable-borderless">
+	                {!! Form::open(['method'=>'POST', 'action'=>'LecturerController@applyLeave', 'files'=>true]) !!}
+				        <div class="form-group col-md-12">
+				            <label for="inputPassword1" class="col-md-4 control-label">Sebab Keluar</label>
+				            <div class="col-md-8">
+				                    <textarea name="reason" class="form-control border-grey-navy" rows="5" placeholder="Nyatakan sebab untuk keluar kampus" value="{{ old('reason') }}"></textarea>
+				            </div>
+				        </div>
+				        
+				        <div class="form-group col-md-12">
+				            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Keluar</label>
+				            <div class="col-md-8">
+				                <div class="input-group input-medium date date-picker" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
+				                	<span class="input-group-btn">
+				                        <button class="btn default" type="button">
+				                            <i class="fa fa-calendar"></i>
+				                        </button>
+				                    </span>
+				                    <input type="text" class="form-control" readonly="" name="date_from" value="{{ old('date_from') }}">
+				                </div>
+				            </div>
+				        </div>
+
+				        <div class="form-group col-md-12">
+				            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Pulang</label>
+				            <div class="col-md-8">
+				                <div class="input-group input-medium date date-picker" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
+				                	<span class="input-group-btn">
+				                        <button class="btn default" type="button">
+				                            <i class="fa fa-calendar"></i>
+				                        </button>
+				                    </span>
+				                    <input type="text" class="form-control" readonly="" name="date_to" value="{{ old('date_to') }}">
+				                    
+				                </div>
+				            </div>
+				        </div>
+				        
+				        <div class="form-group col-md-12">
+				            <label for="inputPassword1" class="col-md-4 control-label">Upload fail</label>
+				            <div class="col-md-8">
+				                <input class="form-control input-line input-medium" type="file" name="attachment" id="fileToUpload">
+				            </div>
+				        </div>
+				        <div class="form-group col-md-12">
+				            <button type="submit" class="btn btn-transparent blue active"> Submit </button>
+				        </div>
+				    {!! Form::close() !!}
+	            </div>
+	        </div>
+	    </div>
+	    <!-- END BORDERED TABLE PORTLET-->
+    </div>
 
     
 </div>
