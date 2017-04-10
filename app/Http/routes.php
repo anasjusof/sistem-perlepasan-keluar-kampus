@@ -12,17 +12,32 @@
 */
 
 Route::get('/', function () {
-    return redirect('/admin');
+    //return view('welcome');
+	if(Auth::user()->getRolesId() == 1){                // If roles id == 2, redirect to /dekan            
+      return redirect('admin');
+    }
+    if(Auth::user()->getRolesId() == 2){                // If roles id == 2, redirect to /dekan            
+      return redirect('dekan');
+    }
+
+    if(Auth::user()->getRolesId() == 3){                // If roles id == 2, redirect to /ketuajabatan            
+      return redirect('ketuajabatan');
+    }
+
+    if(Auth::user()->getRolesId() == 4){                // If roles id == 2, redirect to /pensyarah            
+      return redirect('pensyarah');
+    }
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('loginTemplate', ['uses'=>'AdminController@loginTemplate'])->name('admin.loginTemplate');
 
 
 //Admin
 Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
-	Route::get('admin', ['uses'=>'AdminController@index'])->name('admin.index');
+	Route::get('admin/', ['uses'=>'AdminController@index'])->name('admin.index');
 
 	Route::get('admin/manage-faculty', ['uses'=>'AdminController@manageFaculty'])->name('admin.manage-faculty');
 	Route::post('admin/create-faculty', ['uses'=>'AdminController@createFaculty'])->name('admin.create-faculty');

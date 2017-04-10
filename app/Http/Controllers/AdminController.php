@@ -64,6 +64,8 @@ class AdminController extends Controller
             $input['faculties_id'] = 0;
         }
 
+        $input['password'] = bcrypt($input['password']);
+
         $user = User::create($input);
 
         return redirect()->back()->with('create_message', 'User successfully created!');
