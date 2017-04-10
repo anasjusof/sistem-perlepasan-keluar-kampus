@@ -175,26 +175,66 @@ License: You must have a valid license purchased only from themeforest(the above
 							Dashboard</a>
 						</li>
 						<li>
-							<a href=" ">
-							<i class="fa fa-money"></i>
-							Zakat Management</a>
-						</li>
-						<li>
-							<a href="">
-							<i class="fa fa-bank"></i>
-							Banks Account Management</a>
-						</li>
-						<li>
-							<a href="">
+							<a href="{{ route('admin.manage-user') }}">
 							<i class="fa fa-user"></i>
 							Admin Management</a>
+						</li>
+						<li>
+							<a href="{{ route('admin.manage-faculty') }}">
+							<i class="fa fa-user"></i>
+							Faculties Management</a>
 						</li>
 					</ul>
 				</li>
 
 				@endif
+				@if(Auth::user()->roles_id == 2)
 				<li>
-					<a href="" class="li-hover">
+					<a href="{{ route('dekan.index') }}" class="li-hover">
+					<i class="fa fa-calendar hover-icon"></i>
+					<span class="title">Histori Permohonan Perlepasan</span>
+					</a>
+					<!--
+					<ul class="sub-menu">
+						<li>
+							<a href=" ">
+							<i class="icon-plus"></i>
+							Pay Zakat</a>
+						</li>
+						<li>
+							<a href=" ">
+							<i class="icon-calendar"></i>
+							View your history</a>
+						</li>
+					</ul>
+					-->
+				</li>
+				@endif
+				@if(Auth::user()->roles_id == 3)
+				<li>
+					<a href="{{ route('ketuajabatan.index') }}" class="li-hover">
+					<i class="fa fa-calendar hover-icon"></i>
+					<span class="title">Histori Permohonan Perlepasan</span>
+					</a>
+					<!--
+					<ul class="sub-menu">
+						<li>
+							<a href=" ">
+							<i class="icon-plus"></i>
+							Pay Zakat</a>
+						</li>
+						<li>
+							<a href=" ">
+							<i class="icon-calendar"></i>
+							View your history</a>
+						</li>
+					</ul>
+					-->
+				</li>
+				@endif
+				@if(Auth::user()->roles_id == 4)
+				<li>
+					<a href="{{ route('pensyarah.index') }}" class="li-hover">
 					<i class="fa fa-calendar hover-icon"></i>
 					<span class="title">Permohonan Perlepasan</span>
 					</a>
@@ -213,7 +253,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					</ul>
 					-->
 				</li>
-
+				@endif
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>
@@ -229,17 +269,10 @@ License: You must have a valid license purchased only from themeforest(the above
 			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
-					<li>
-						<i class="fa fa-home"></i>
-						<a href="index.html">Home</a>
-						<i class="fa fa-angle-right"></i>
-					</li>
-					<li>
-						<a href="#">Dashboard</a>
-					</li>
+					@yield('breadcrumb')
 				</ul>
 				<div class="page-toolbar">
-					<div class="pull-right tooltips btn btn-fit-height red-flamingo">
+					<div class="pull-right tooltips btn btn-fit-height" style="background: #333745; color: white;">
 						<i class="icon-calendar"></i>&nbsp;
 						<?php 
 							$dt = Carbon\Carbon::now(); 

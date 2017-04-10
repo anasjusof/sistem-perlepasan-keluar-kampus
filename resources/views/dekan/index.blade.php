@@ -8,11 +8,22 @@
     Permohonan Perlepasan
 @stop
 
+@section('breadcrumb')
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="#">Histori Permohonan Perlepasan</a>
+    </li>
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">
 		<!-- BEGIN BORDERED TABLE PORTLET-->
-	    <div class="portlet box blue-steel">
+	    <div class="portlet box blue-dark">
 	        <div class="portlet-title">
 	            <div class="caption">
 	                <i class="icon-calendar font-white"></i>
@@ -109,7 +120,7 @@
         	<div class="col-md-6">
         		<div class="pull-right">
         			
-        			{!! Form::open(['method'=>'POST', 'action'=>['HeadDepartmentController@approveReject'], 'id'=>'form_update_status']) !!}
+        			{!! Form::open(['method'=>'POST', 'action'=>['DeansController@approveReject'], 'id'=>'form_update_status']) !!}
         			<button class="btn btn-sm green updateBtn">Update Status</button>
         		{!! Form::close() !!}
         		</div>

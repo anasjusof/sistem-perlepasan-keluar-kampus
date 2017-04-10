@@ -12,20 +12,48 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/admin');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('pensyarah', ['uses'=>'LecturerController@index'])->name('pensyarah.index');
-Route::post('pensyarah/permohonan', ['uses'=>'LecturerController@applyLeave'])->name('pensyarah.permohonan');
 
-Route::get('ketuajabatan', ['uses'=>'HeadDepartmentController@index'])->name('ketuajabatan.index');
-Route::post('ketuajabatan/approvereject', ['uses'=>'HeadDepartmentController@approveReject'])->name('ketuajabatan.approvereject');
+//Admin
+Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
+	Route::get('admin', ['uses'=>'AdminController@index'])->name('admin.index');
 
-Route::get('dekan', ['uses'=>'DeansController@index'])->name('dekan.index');
-Route::post('dekan/approvereject', ['uses'=>'DeansController@approveReject'])->name('dekan.approvereject');
+	Route::get('admin/manage-faculty', ['uses'=>'AdminController@manageFaculty'])->name('admin.manage-faculty');
+	Route::post('admin/create-faculty', ['uses'=>'AdminController@createFaculty'])->name('admin.create-faculty');
+	Route::delete('admin/delete-faculty', ['uses'=>'AdminController@deleteFaculty'])->name('admin.delete-faculty');
 
+	Route::get('admin/manage-user', ['uses'=>'AdminController@manageUser'])->name('admin.manage-user');
+	Route::post('admin/create-user', ['uses'=>'AdminController@createUser'])->name('admin.create-user');
+	Route::delete('admin/delete-user', ['uses'=>'AdminController@deleteUser'])->name('admin.delete-user');
+	Route::patch('admin/edit-user', ['uses'=>'AdminController@editUser'])->name('admin.edit-user');
+});
 
+//Dekan
+Route::group(['middleware'=>['auth', 'checkRole:2']], function(){
+
+	Route::get('dekan', ['uses'=>'DeansController@index'])->name('dekan.index');
+	Route::post('dekan/approvereject', ['uses'=>'DeansController@approveReject'])->name('dekan.approvereject');
+
+});
+
+//Ketua Jabatan
+Route::group(['middleware'=>['auth', 'checkRole:3']], function(){
+
+	Route::get('ketuajabatan', ['uses'=>'HeadDepartmentController@index'])->name('ketuajabatan.index');
+	Route::post('ketuajabatan/approvereject', ['uses'=>'HeadDepartmentController@approveReject'])->name('ketuajabatan.approvereject');
+
+});
+
+//Pensyarah
+Route::group(['middleware'=>['auth', 'checkRole:4']], function(){
+
+	Route::get('pensyarah', ['uses'=>'LecturerController@index'])->name('pensyarah.index');
+	Route::post('pensyarah/permohonan', ['uses'=>'LecturerController@applyLeave'])->name('pensyarah.permohonan');
+
+});

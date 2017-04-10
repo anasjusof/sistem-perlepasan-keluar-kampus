@@ -57,40 +57,40 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
-    <!-- BEGIN LOGIN FORM -->
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+	<!-- BEGIN LOGIN FORM -->
+	<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
 
-        {{ csrf_field() }}
-        
-        <h3 class="form-title">Sign In</h3>
-        <div class="alert alert-danger display-hide">
-            <button class="close" data-close="alert"></button>
-            <span>
-            Enter any username and password. </span>
-        </div>
-        <div class="form-group">
-            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Email</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
-        </div>
-        <div class="form-actions text-center">
-            <button type="submit" class="btn btn-success uppercase ">Login</button>
-        </div>
-        <div class="create-account">
-            <p>
-                <a> </a>
-            </p>
-        </div>
-    </form>
-    <!-- END LOGIN FORM -->
-    
+		{{ csrf_field() }}
+		
+		<h3 class="form-title">Sign In</h3>
+		<div class="alert alert-danger display-hide">
+			<button class="close" data-close="alert"></button>
+			<span>
+			Enter any username and password. </span>
+		</div>
+		<div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Email</label>
+			<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+		</div>
+		<div class="form-actions text-center">
+			<button type="submit" class="btn btn-success uppercase ">Login</button>
+		</div>
+		<div class="create-account">
+			<p>
+				<a> </a>
+			</p>
+		</div>
+	</form>
+	<!-- END LOGIN FORM -->
+	
 </div>
 <div class="copyright">
-     2017 © System Perlepasan Keluar Kampus
+	 2017 © System Perlepasan Keluar Kampus
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -117,10 +117,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {     
-    Metronic.init(); // init metronic core components
-    Layout.init(); // init current layout
-    Login.init();
-    Demo.init();
+	Metronic.init(); // init metronic core components
+	Layout.init(); // init current layout
+	Login.init();
+	Demo.init();
 });
 </script>
 <!-- END JAVASCRIPTS -->

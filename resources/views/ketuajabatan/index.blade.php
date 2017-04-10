@@ -8,11 +8,22 @@
     Permohonan Perlepasan
 @stop
 
+@section('breadcrumb')
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="#">Histori Permohonan Perlepasan</a>
+    </li>
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">
 		<!-- BEGIN BORDERED TABLE PORTLET-->
-	    <div class="portlet box blue-steel">
+	    <div class="portlet box blue-dark">
 	        <div class="portlet-title">
 	            <div class="caption">
 	                <i class="icon-calendar font-white"></i>
@@ -81,6 +92,7 @@
 	                                </span>
 	                            </td>
 	                            <td>
+	                            	@if ($history->approval_status == 0)
 	                            	<div class="icheck-list">
 										<label class="mt-radio mt-radio-outline">
                                             <input type="radio" value="{{ $history->history_id }}-1" name="history[{{ $history->history_id }}]" form="form_update_status"> Lulus
@@ -91,6 +103,7 @@
                                             <span></span>
                                         </label>
 									</div>
+									@endif
 	                            </td>
 	                        </tr>
 	                        <?php $count++ ?>

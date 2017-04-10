@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\LecturerRequest;
 
 use Auth;
 
@@ -15,10 +16,11 @@ class LecturerController extends Controller
 {
     public function index(){
 
-    	$histories = LecturerHistory::select('users.name', 'users.email','lecturer_histories.id as history_id','lecturer_histories.reason','lecturer_histories.date_from','lecturer_histories.date_to','lecturer_histories.created_at', 'lecturer_histories.approval_status', 'attachments.filepath')
+    	$histories = LecturerHistory::select('users.name', 'users.email','lecturer_histories.id as history_id','lecturer_histories.reason','lecturer_histories.date_from','lecturer_histories.date_to','lecturer_histories.created_at', 'lecturer_histories.approval_status as head_department_approval_status', 'head_department_histories.approval_status', 'attachments.filepath')
     								->join('users', 'lecturer_histories.users_id', '=', 'users.id')
     								->join('attachments', 'lecturer_histories.attachments_id', '=', 'attachments.id')
-    								->where('users_id', '=', Auth::user()->id)
+                                    ->leftJoin('head_department_histories', 'lecturer_histories.id', '=', 'head_department_histories.lecturer_histories')
+    								->where('users.id', '=', Auth::user()->id)
     								->orderBy('lecturer_histories.id', 'DESC')
     								->paginate(5);
 
@@ -26,9 +28,11 @@ class LecturerController extends Controller
 
     	return view('pensyarah.index', compact('histories', 'directory')); 
 
+        
+
     }
 
-    public function applyLeave(Request $request){
+    public function applyLeave(LecturerRequest $request){
 
     	$input = $request->all();
 
@@ -61,6 +65,6 @@ class LecturerController extends Controller
 
     	$history = LecturerHistory::create($input);
 
-    	return redirect()->back();
+    	return redirect()->back()->with('message', 'Permohonan anda berjaya dihantar');
     }
 }

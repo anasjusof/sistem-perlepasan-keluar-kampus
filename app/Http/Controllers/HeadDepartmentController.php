@@ -16,9 +16,12 @@ class HeadDepartmentController extends Controller
 {
     public function index(){
 
+        $current_user_f_id = Auth::user()->faculties_id;
+
     	$histories = LecturerHistory::select('users.name', 'users.email','lecturer_histories.id as history_id','lecturer_histories.reason','lecturer_histories.date_from','lecturer_histories.date_to','lecturer_histories.created_at', 'lecturer_histories.approval_status', 'attachments.filepath')
     								->join('users', 'lecturer_histories.users_id', '=', 'users.id')
     								->join('attachments', 'lecturer_histories.attachments_id', '=', 'attachments.id')
+                                    ->where('users.faculties_id', '=', $current_user_f_id)
     								->orderBy('lecturer_histories.id', 'DESC')
     								->paginate(5);
 
@@ -47,7 +50,11 @@ class HeadDepartmentController extends Controller
             $input['lecturer_histories'] = $history_id;
             $input['approval_status'] = 0;
 
-            HeadDepartmentHistory::create($input);
+            // If not rejected, then only create data for Dekan for approval.
+            if($status != 2){
+               HeadDepartmentHistory::create($input); 
+            }
+            
 
         }
 

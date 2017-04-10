@@ -7,7 +7,20 @@
 
 			if ($("#tbody input:checkbox:checked").length > 0)
 			{
-				$(this).trigger('click');
+				e.preventDefault();
+				//$(this).trigger('click');
+
+				swal({
+				  title: 'Are you sure you want to delete?',
+				  type: 'warning',
+				  showCancelButton: true,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  confirmButtonText: 'Delete'
+				}).then(function () {
+					$("#form_update_status").trigger('submit');
+				}).catch(swal.noop);
+
 			}
 			else
 			{
@@ -28,7 +41,7 @@
 			{
 			   
 			   e.preventDefault();
-			   alertify.error("Nothing is selected for status approval");
+			   alertify.error("Sila pilih permohonan untuk diluluskan/ditolak");
 			}
 		});
 
