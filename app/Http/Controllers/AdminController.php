@@ -47,6 +47,7 @@ class AdminController extends Controller
     	$users = User::select('users.*', 'faculties.id as faculties_id', 'roles.id as roles_id', 'roles.name as role_name', 'faculties.name as faculty_name')
     					->join('roles', 'roles.id', '=', 'users.roles_id')
     					->leftJoin('faculties', 'faculties.id', '=', 'users.faculties_id')
+                        ->orderBy('id', 'DESC')
     					->paginate(5);
 
     	$roles = Role::lists('name', 'id');
