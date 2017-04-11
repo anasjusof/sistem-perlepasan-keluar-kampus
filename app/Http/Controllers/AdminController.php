@@ -16,10 +16,10 @@ class AdminController extends Controller
 {
     public function index(){
 
-        $admin = User::where('roles_id', '=', 1);
-        $dekan = User::where('roles_id', '=', 2);
-        $ketuajabatan = User::where('roles_id', '=', 3);
-        $pensyarah = User::where('roles_id', '=', 4);
+        $admin = User::where('roles_id', '=', 1)->get();
+        $dekan = User::where('roles_id', '=', 2)->get();
+        $ketuajabatan = User::where('roles_id', '=', 3)->get();
+        $pensyarah = User::where('roles_id', '=', 4)->get();
 
         return view('admin.dashboard', compact('admin', 'dekan', 'ketuajabatan', 'pensyarah'));
     }
