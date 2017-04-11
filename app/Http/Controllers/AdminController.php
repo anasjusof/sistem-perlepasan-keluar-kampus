@@ -15,7 +15,13 @@ use App\Role;
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.dashboard');
+
+        $admin = User::where('roles_id', '=', 1);
+        $dekan = User::where('roles_id', '=', 2);
+        $ketuajabatan = User::where('roles_id', '=', 3);
+        $pensyarah = User::where('roles_id', '=', 4);
+
+        return view('admin.dashboard', compact('admin', 'dekan', 'ketuajabatan', 'pensyarah'));
     }
     
     public function manageFaculty(){

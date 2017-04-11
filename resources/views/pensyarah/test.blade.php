@@ -1,1 +1,0 @@
-sistem perlepasan keluar kampus

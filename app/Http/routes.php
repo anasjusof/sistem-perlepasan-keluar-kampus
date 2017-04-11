@@ -13,20 +13,25 @@
 
 Route::get('/', function () {
     //return view('welcome');
-	if(Auth::user()->getRolesId() == 1){                // If roles id == 2, redirect to /dekan            
-      return redirect('admin');
-    }
-    if(Auth::user()->getRolesId() == 2){                // If roles id == 2, redirect to /dekan            
-      return redirect('dekan');
-    }
+    if(Auth::check()){
+		if(Auth::user()->getRolesId() == 1){                // If roles id == 2, redirect to /dekan            
+	      return redirect('admin');
+	    }
+	    if(Auth::user()->getRolesId() == 2){                // If roles id == 2, redirect to /dekan            
+	      return redirect('dekan');
+	    }
 
-    if(Auth::user()->getRolesId() == 3){                // If roles id == 2, redirect to /ketuajabatan            
-      return redirect('ketuajabatan');
-    }
+	    if(Auth::user()->getRolesId() == 3){                // If roles id == 2, redirect to /ketuajabatan            
+	      return redirect('ketuajabatan');
+	    }
 
-    if(Auth::user()->getRolesId() == 4){                // If roles id == 2, redirect to /pensyarah            
-      return redirect('pensyarah');
-    }
+	    if(Auth::user()->getRolesId() == 4){                // If roles id == 2, redirect to /pensyarah            
+	      return redirect('pensyarah');
+	    }
+	}
+	else{
+		return redirect('/login');
+	}
 });
 
 Route::auth();

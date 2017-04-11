@@ -33,6 +33,10 @@
 	        <div class="portlet-body">
 	            <div class="table-scrollable table-scrollable-borderless">
 	                <table class="table table-hover table-light">
+
+			        	<div class="col-md-12">
+			        		<a href="" class="btn btn-sm green-jungle pull-right" id="createButton" data-toggle="modal" data-target="#createModal">Create New User</a>
+			        	</div>
 	                    <thead>
 	                        <tr class="uppercase">
 	                        	<th> <input id="checkall-checkbox" type="checkbox"> </th>
@@ -79,7 +83,6 @@
 		        			{{$users->render()}}
 		        		</div>
 		        	</div>
-		        </div>
 	        </div>
 
 	        
@@ -87,9 +90,10 @@
 	    <!-- END BORDERED TABLE PORTLET-->
 	</div>
 	
-
+	<!--
     <div class="col-md-12">
     	<!-- BEGIN BORDERED TABLE PORTLET-->
+    	<!--
 	    <div class="portlet box blue-dark">
 	        <div class="portlet-title">
 	            <div class="caption">
@@ -145,9 +149,11 @@
 	        </div>
 	    </div>
 	    <!-- END BORDERED TABLE PORTLET-->
+	  	<!--
     </div>
     
 </div>
+-->
 
 <!-- Modal -->
 <div id="editModal" class="modal fade" role="dialog">
@@ -211,6 +217,70 @@
 
   </div>
 </div>
+<!-- End Modal -->
+
+<!-- Modal -->
+<div id="createModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New User</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="table-scrollable table-scrollable-borderless">
+            {!! Form::open(['method'=>'POST', 'action'=>'AdminController@createUser']) !!}
+            	<div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Name</label>
+		            <div class="col-md-8">
+		                    <input type="text" name="name" class="form-control input-line" id="username" value="{{ old('name') }}">
+		            </div>
+		        </div>
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Email</label>
+		            <div class="col-md-8">
+		                    <input type="email" name="email" class="form-control input-line" id="email" value="{{ old('email') }}">
+		            </div>
+		        </div>
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Password</label>
+		            <div class="col-md-8">
+		            		
+		                    <input type="password" name="password" class="form-control input-line" id="password">
+		            </div>
+		        </div>
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Confirm Password</label>
+		            <div class="col-md-8">
+		                    <input type="password" name="password_confirmation" class="form-control input-line" id="confirm_password">
+		            </div>
+		        </div>
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Roles</label>
+		            <div class="col-md-8">
+		                    {!! Form::select('roles_id', $roles, 0, ['id'=>'roles_select', 'class'=>'form-control']) !!}
+		            </div>
+		        </div>
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Faculty</label>
+		            <div class="col-md-8">
+		                    {!! Form::select('faculties_id', $faculties, 0, ['id'=>'faculty_select', 'class'=>'form-control']) !!}
+		            </div>
+		        </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      	<button class="btn btn-transparent blue btn-sm active submitUserBtn"> Submit </button>
+        <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">Close</button>
+       {!! Form::close() !!}
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End modal -->
 
 @stop
 

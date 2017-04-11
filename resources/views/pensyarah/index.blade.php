@@ -32,6 +32,9 @@
 	            </div>
 	        </div>
 	        <div class="portlet-body">
+	        	<div class="col-md-12 margin-bottom-15px">
+	        		<a href="" class="btn btn-sm green-jungle pull-right" id="createButton" data-toggle="modal" data-target="#createModal">Mohon Perlepasan</a>
+	        	</div>
 	            <div class="table-scrollable table-bordered table-hover">
 	                <table class="table table-hover table-light">
 	                    <thead>
@@ -67,7 +70,7 @@
 	                            <td> {{ $history->date_from }}</td>
 	                            <td> {{ $history->date_to }}</td>
 	                            <td>
-		                            <a class="btn btn-transparent purple btn-circle btn-sm active" href="{{ $directory.$history->filepath }}" download>
+		                            <a class="btn btn-transparent grey-mint btn-sm active" href="{{ $directory.$history->filepath }}" download>
 		                            	Download
 		                            </a>
 	                            </td>
@@ -98,16 +101,17 @@
 	            </div>
 	        </div>
 	        	<div class="col-md-12">
-	        		<div class="text-center">
+	        		<div class="pull-right">
 	        			{{$histories->render()}}
 	        		</div>
 	        	</div>
 	    </div>
 	    <!-- END BORDERED TABLE PORTLET-->
 	</div>
-
+	<!--
 	<div class="col-md-8 col-md-offset-2">
     	<!-- BEGIN BORDERED TABLE PORTLET-->
+    	<!--
 	    <div class="portlet box blue-dark ">
 	        <div class="portlet-title">
 	            <div class="caption">
@@ -168,10 +172,80 @@
 	        </div>
 	    </div>
 	    <!-- END BORDERED TABLE PORTLET-->
+	 <!--
     </div>
+    -->
 
     
 </div>
+
+<!-- Modal -->
+<div id="createModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New User</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="table-scrollable table-scrollable-borderless">
+            {!! Form::open(['method'=>'POST', 'action'=>'LecturerController@applyLeave', 'files'=>true]) !!}
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Sebab Keluar</label>
+		            <div class="col-md-8">
+		                    <textarea name="reason" class="form-control border-grey-navy" rows="5" placeholder="Nyatakan sebab untuk keluar kampus" value="{{ old('reason') }}"></textarea>
+		            </div>
+		        </div>
+		        
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Keluar</label>
+		            <div class="col-md-8">
+		                <div class="input-group date date-picker border-grey-navy" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
+		                	<span class="input-group-btn">
+		                        <button class="btn default" type="button">
+		                            <i class="fa fa-calendar"></i>
+		                        </button>
+		                    </span>
+		                    <input type="text" class="form-control" readonly="" name="date_from" value="{{ old('date_from') }}">
+		                </div>
+		            </div>
+		        </div>
+
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Tarikh Pulang</label>
+		            <div class="col-md-8">
+		                <div class="input-group date date-picker border-grey-navy" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
+		                	<span class="input-group-btn">
+		                        <button class="btn default" type="button">
+		                            <i class="fa fa-calendar"></i>
+		                        </button>
+		                    </span>
+		                    <input type="text" class="form-control" readonly="" name="date_to" value="{{ old('date_to') }}">
+		                    
+		                </div>
+		            </div>
+		        </div>
+		        
+		        <div class="form-group col-md-12">
+		            <label for="inputPassword1" class="col-md-4 control-label">Upload fail</label>
+		            <div class="col-md-8">
+		                <input class="form-control border-grey-navy" type="file" name="attachment" id="fileToUpload">
+		            </div>
+		        </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      	<button class="btn btn-transparent blue btn-sm active submitUserBtn"> Submit </button>
+        <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">Close</button>
+       {!! Form::close() !!}
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End modal -->
 @stop
 
 @section('script')

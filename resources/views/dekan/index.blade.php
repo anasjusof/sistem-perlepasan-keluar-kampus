@@ -71,7 +71,7 @@
 	                            <td> {{ $history->date_from }}</td>
 	                            <td> {{ $history->date_to }}</td>
 	                            <td>
-		                            <a class="btn btn-transparent purple btn-circle btn-sm active" href="{{ $directory.$history->filepath }}" download>
+		                            <a class="btn btn-transparent grey-mint btn-sm active" href="{{ $directory.$history->filepath }}" download>
 		                            	Download
 		                            </a>
 	                            </td>

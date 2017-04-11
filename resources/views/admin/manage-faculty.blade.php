@@ -101,7 +101,7 @@
 				            </div>
 				        </div>
 				        <div class="form-group col-md-12">
-				            <button class="btn btn-transparent blue btn-circle active"> Submit </button>
+				            <button class="btn btn-transparent blue btn-sm active"> Submit </button>
 				        </div>
 				    {!! Form::close() !!}
 	            </div>

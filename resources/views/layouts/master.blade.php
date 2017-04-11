@@ -170,18 +170,18 @@ License: You must have a valid license purchased only from themeforest(the above
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href=" ">
+							<a href="{{ route('admin.index') }}">
 							<i class="fa fa-dashboard"></i>
 							Dashboard</a>
 						</li>
 						<li>
 							<a href="{{ route('admin.manage-user') }}">
 							<i class="fa fa-user"></i>
-							Admin Management</a>
+							Users Management</a>
 						</li>
 						<li>
 							<a href="{{ route('admin.manage-faculty') }}">
-							<i class="fa fa-user"></i>
+							<i class="fa fa-institution"></i>
 							Faculties Management</a>
 						</li>
 					</ul>
@@ -272,7 +272,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					@yield('breadcrumb')
 				</ul>
 				<div class="page-toolbar">
-					<div class="pull-right tooltips btn btn-fit-height" style="background: #333745; color: white;">
+					<div class="pull-right tooltips btn btn-fit-height grey-gallery" style="color: white;">
 						<i class="icon-calendar"></i>&nbsp;
 						<?php 
 							$dt = Carbon\Carbon::now(); 
