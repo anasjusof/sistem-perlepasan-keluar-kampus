@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Login Options - Login Form 1</title>
+<title> Sistem Perlepasan Keluar Kampus - SPKK</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -42,6 +42,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
+
+<!-- Alertrify -->
+<script src="../assets/alertrify/js/alertify.min.js"></script>
+<!-- include the style -->
+<link rel="stylesheet" href="../assets/alertrify/css/alertify.min.css" />
+<!-- include a theme -->
+<link rel="stylesheet" href="../assets/alertrify/css/themes/default.min.css" />
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -123,6 +131,9 @@ jQuery(document).ready(function() {
     Demo.init();
 });
 </script>
+
+@include('errors.validation-errors')
+@include('errors.validation-errors-script')
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
