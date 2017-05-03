@@ -89,7 +89,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <button type="submit" class="btn btn-success uppercase ">Login</button>
         </div>
         <div class="create-account">
-            <p>
+            <p style="color:white;">
+                2017 © System Perlepasan Keluar Kampus
                 <a> </a>
             </p>
         </div>
@@ -98,7 +99,7 @@ License: You must have a valid license purchased only from themeforest(the above
     
 </div>
 <div class="copyright">
-     2017 © System Perlepasan Keluar Kampus
+     
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->

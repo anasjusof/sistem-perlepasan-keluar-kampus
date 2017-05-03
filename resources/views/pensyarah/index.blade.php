@@ -32,7 +32,22 @@
 	            </div>
 	        </div>
 	        <div class="portlet-body">
-	        	<div class="col-md-12 margin-bottom-15px">
+	        	<div class="col-md-10 margin-bottom-15px">
+	        		{!! Form::open(['method'=>'POST', 'action'=>'LecturerController@applyLeave', 'files'=>true]) !!}
+
+	        		<div class="col-md-3">
+	        			<select class="form-control input-sm" id="filter_status" name="filter_status" onchange="myFunction()">
+	        				<option value=""></option>
+	        				<option value="">Kesemua</option>
+	        				<option value="0">Dalam proses</option>
+	        				<option value="1">Lulus</option>
+	        				<option value="2">Tidak diterima</option>
+	        			</select>
+	        		</div>
+	        			
+	        		{!! Form::close() !!}
+	        	</div>
+	        	<div class="col-md-2 margin-bottom-15px">
 	        		<a href="" class="btn btn-sm green-jungle pull-right" id="createButton" data-toggle="modal" data-target="#createModal">Mohon Perlepasan</a>
 	        	</div>
 	            <div class="table-scrollable table-bordered table-hover">
@@ -187,7 +202,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Create New User</h4>
+        <h4 class="modal-title">Mohon Perlepasan</h4>
       </div>
       <div class="modal-body">
       	<div class="table-scrollable table-scrollable-borderless">
@@ -250,6 +265,29 @@
 
 @section('script')
 
+<script>
+	
+	function myFunction() {
+		window.location.href = '/pensyarah?status=' + $( "#filter_status" ).val();
+	// 	$("body").fadeOut();
+	// 	$.ajax({
+	// 	  type: "GET",
+	// 	  async: true,
+	// 	  url: "/pensyarah?status=" + $( "#filter_status" ).val(),
+	// 	  cache: false,
+	// 	  contentType: "application/json; charset=utf-8",
+	// 	  success: function(data){
+	// 	  	alert('LOL');
+	// 	  	JSON.stringify(data);
+	// 	  	console.log(data);
+	// 	  	$("body").fadeIn();
+	// 	    $("body").html(data.html);
+
+	// 	  }
+	// 	});
+	}
+</script>
+
 @if(Session::has('message'))
     <script>
     	swal(
@@ -259,7 +297,6 @@
 		)
     </script>
 @endif
-
 
 @include('errors.validation-errors')
 
