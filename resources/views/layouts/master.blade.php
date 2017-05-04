@@ -304,9 +304,9 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<div class="page-footer">
-	<div class="page-footer-inner">
-		 2017 &copy; Development.Inc
+<div class="page-footer text-center">
+	<div class="page-footer-inner ">
+		 2017 &copy; Development
 	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>

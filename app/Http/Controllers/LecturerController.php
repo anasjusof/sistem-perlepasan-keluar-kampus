@@ -45,12 +45,7 @@ class LecturerController extends Controller
 
 
         if($checkSearch == 0){
-            $histories = LecturerHistory::select('users.name', 'users.email','lecturer_histories.id as history_id','lecturer_histories.reason','lecturer_histories.date_from','lecturer_histories.date_to','lecturer_histories.created_at', 'lecturer_histories.approval_status as head_department_approval_status', 'head_department_histories.approval_status', 'attachments.filepath')
-                                    ->join('users', 'lecturer_histories.users_id', '=', 'users.id')
-                                    ->join('attachments', 'lecturer_histories.attachments_id', '=', 'attachments.id')
-                                    ->leftJoin('head_department_histories', 'lecturer_histories.id', '=', 'head_department_histories.lecturer_histories')
-                                    ->where('users.id', '=', Auth::user()->id)
-                                    ->orderBy('lecturer_histories.id', 'DESC')
+            $histories = $histories->orderBy('lecturer_histories.id', 'DESC')
                                     ->paginate(5);
 
             response()->json(array('check'=>$histories));

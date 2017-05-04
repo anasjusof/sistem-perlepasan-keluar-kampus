@@ -32,10 +32,10 @@
 	            </div>
 	        </div>
 	        <div class="portlet-body">
-	        	<div class="col-md-10 margin-bottom-15px">
+	        	<div class="col-md-10 margin-bottom-15px padding-left-0px">
 	        		{!! Form::open(['method'=>'POST', 'action'=>'LecturerController@applyLeave', 'files'=>true]) !!}
 
-	        		<div class="col-md-3">
+	        		<div class="col-md-3 padding-left-0px">
 	        			<select class="form-control input-sm" id="filter_status" name="filter_status" onchange="myFunction()">
 	        				<option value=""></option>
 	        				<option value="">Kesemua</option>
@@ -47,7 +47,7 @@
 	        			
 	        		{!! Form::close() !!}
 	        	</div>
-	        	<div class="col-md-2 margin-bottom-15px">
+	        	<div class="col-md-2 margin-bottom-15px padding-right-0px">
 	        		<a href="" class="btn btn-sm green-jungle pull-right" id="createButton" data-toggle="modal" data-target="#createModal">Mohon Perlepasan</a>
 	        	</div>
 	            <div class="table-scrollable table-bordered table-hover">
@@ -80,7 +80,7 @@
 	                        @foreach($histories as $history)
 	                        <?php $currentPageTotalNumber = ($histories->currentPage() - 1) * 5; ?>
 	                        <tr>
-	                            <td>{{$count + $currentPageTotalNumber}}</td>
+	                            <td><b>{{$count + $currentPageTotalNumber}}</b></td>
 	                            <td> {{ $history->reason }}</td>
 	                            <td> {{ $history->date_from }}</td>
 	                            <td> {{ $history->date_to }}</td>

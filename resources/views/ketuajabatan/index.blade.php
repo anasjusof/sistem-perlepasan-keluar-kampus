@@ -31,6 +31,18 @@
 	            </div>
 	        </div>
 	        <div class="portlet-body">
+	        	<div class="col-md-12 margin-bottom-15px padding-left-0px">
+		        	<div class="col-md-3 padding-left-0px">
+	        			<select class="form-control input-sm" id="filter_status" name="filter_status" onchange="myFunction()">
+	        				<option value=""></option>
+	        				<option value="">Kesemua</option>
+	        				<option value="0">Dalam proses</option>
+	        				<option value="1">Lulus</option>
+	        				<option value="2">Tidak diterima</option>
+	        			</select>
+	        		</div>	
+	        	</div>
+	        	
 	            <div class="table-scrollable table-bordered table-hover">
 	                <table class="table table-hover table-light">
 	                    <thead>
@@ -143,6 +155,11 @@
 <script> FormiCheck.init();  </script>
 
 <script>
+
+	function myFunction() {
+		window.location.href = '/ketuajabatan?status=' + $( "#filter_status" ).val();
+	}
+
 	$(document).ready(function(){
        $('#checkall-checkbox').click(function(){
             if(this.checked){
